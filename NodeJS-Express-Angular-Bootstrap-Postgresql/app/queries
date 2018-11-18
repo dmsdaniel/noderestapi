@@ -1,0 +1,38 @@
+var promise = require('bluebird');
+
+var options = {
+  // Initialization Options
+  promiseLib: promise
+};
+
+var pgp = require('pg-promise')(options);
+var connectionString = 'postgres://postgres@localhost:5432/postgres';
+var db = pgp(connectionString);
+
+// add query functions
+
+function getSingleUser(req, res, next) {
+  var userID = parseInt(req.params.id);
+  db.one('select * from users where id = $1', userID)
+    .then(function (data) {
+      res.status(200)
+        .json({
+          status: 'success',
+          data: data,
+          message: 'Retrieved ONE user'
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
+}
+
+module.exports = {
+  /* getAllPuppies: getAllPuppies,
+  getSingleUser: getSingleUser,
+  createPuppy: createPuppy,
+  updatePuppy: updatePuppy,
+  removePuppy: removePuppy */
+  getSingleUser: getSingleUser  
+
+};

@@ -1,0 +1,27 @@
+{
+  "name": "nodejs-express-angular-bootstrap-postgresql",
+  "version": "1.0.0",
+  "description": "Building a NodeJS Express web-application to POST/GET data to/from Postgresql - using Sequelize + AngularJS +  Bootstrap view",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "NodeJS",
+    "Express",
+    "Bootstrap",
+    "AngularJS",
+    "Sequelize",
+    "Postgresql"
+  ],
+  "author": "JavaSampleApproach.com",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "pg": "^7.6.1",
+    "pg-promise": "^5.9.7",
+    "sequelize": "^4.41.2"
+  }
+}
