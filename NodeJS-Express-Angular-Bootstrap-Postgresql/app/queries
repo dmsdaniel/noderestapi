@@ -27,12 +27,21 @@ function getSingleUser(req, res, next) {
     });
 }
 
+function getAllUsers(req, res, next) {
+  db.any('select * from users')
+    .then(function (data) {
+      res.send(data)
+    })
+    .catch(function (err) {
+      return next(err);
+    });
+}
+
 module.exports = {
-  /* getAllPuppies: getAllPuppies,
-  getSingleUser: getSingleUser,
+  getAllUsers: getAllUsers,
+  getSingleUser: getSingleUser
+  /*
   createPuppy: createPuppy,
   updatePuppy: updatePuppy,
   removePuppy: removePuppy */
-  getSingleUser: getSingleUser  
-
 };

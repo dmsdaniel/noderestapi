@@ -7,7 +7,7 @@ module.exports = function(app) {
 	
 	var db = require('../queries');
 
-    /*router.get('/api/puppies', db.getAllPuppies);*/
+    router.get('/api/users/all', db.getAllUsers);
 	router.get('/api/users/:id', db.getSingleUser);
 	/*
     router.post('/api/puppies', db.createPuppy);
@@ -24,12 +24,17 @@ module.exports = function(app) {
 	app.get('/', (req,res) => {
 		res.sendFile(path + "index.html");
 	});
+
+	app.get('/crud', (req,res) => {
+		res.sendFile(path + "crud.html");
+	});
  
+
     // Save a User to Postgresql
     app.post('/api/users/save', users.save);
  
     // Retrieve all Users
-    app.get('/api/users/all', users.findAll);
+    app.get('/api/users/all2', users.findAll);
 	
 	app.use("/",router);
  
